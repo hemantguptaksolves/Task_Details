@@ -1,5 +1,19 @@
 <p id="notice"><%= notice %></p>
 <div class="contaier">
+
+<h3><%= current_user.email %></h3>
+<p>
+<%= image_tag(current_user.header_image.variant(resize_to_limit: [100, 100])) if current_user.header_image.present? %>
+</p>
+
+<hr>
+
+</div>
+
+
+
+
+
 <p>
   <strong>Title:</strong>
   <%= @post.title %>
@@ -16,23 +30,15 @@
   <%= @post.description %>
 </p>
 
+<hr>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
 
 
 
-<div>
-    <div class="container">
-        <h2 ><strong><%= @post.comments.count %></strong> Comments</h2>
-        <%= render @post.comments %>
-        <div>
-            <hr />
-            <h3>Leave a reply</h3>
-             <%= render 'comments/form' %>
-        </div>
-    </div>
-</div>
 
 
 
-</div>
+
+

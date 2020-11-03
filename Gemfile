@@ -54,6 +54,10 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem "paperclip", "~> 6.0.0"
 gem 'devise', '~> 4.2'
+gem 'carrierwave', '~> 0.11.2'
+gem 'image_processing', '~> 1.12'
+
+gem 'pry'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

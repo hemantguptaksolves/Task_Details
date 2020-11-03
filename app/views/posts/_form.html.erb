@@ -13,19 +13,19 @@
 
   <div class="field form-group container">
     <%= form.label :title %>
-    <%= form.text_field :title , class: "form-control" %>
+    <%= form.text_field :title , class: "form-control",required: true %>
   </div>
 
 
   <div class="field form-group container">
     
-    <%= form.file_field :image , class: "form-control" %>
+    <%= form.file_field :image , class: "form-control",required: true %>
   </div>
 
 
   <div class="field form-group container">
     <%= form.label :description %>
-    <%= form.text_area :description, class: "form-control" %>
+    <%= form.text_area :description, class: "form-control",required: true %>
   </div>
 
   <div class="actions container">
