@@ -20,8 +20,13 @@
 </div>
 <% if user_signed_in? %>
 
+<% if can? :edit, post %>
 <button class="btn btn-warning"><%= link_to 'Edit', edit_post_path(post) %></button>
+<% end %>
+
+<% if can? :delete, post %>
 <button class="btn btn-danger"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %> </button>
+<% end %>
 
 <% end %>
 </div>

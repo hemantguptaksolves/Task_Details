@@ -1,41 +1,86 @@
-<p id="notice"><%= notice %></p>
-<div class="contaier">
+<div class="container" style="margin-top: -8  0px;">
 
-<h3><%= current_user.email %></h3>
-<p>
+<div class="row">
+
+<div class="col-sm-3">
+<p id="notice"><%= notice %></p>
+
+<h3><b>Profile</b></h3>
+<h5><i><%= current_user.email %></i></h5>
+<p style="width=20px;height=20px">
 <%= image_tag(current_user.header_image.variant(resize_to_limit: [100, 100])) if current_user.header_image.present? %>
 </p>
-
-<hr>
-
 </div>
 
 
 
-
-
+<div class="col-sm-5">
 <p>
   <strong>Title:</strong>
-  <%= @post.title %>
+  <%= @post.title %>+
   <p>Published On <%= @post.created_at %> </p>
 </p>
 
 
 <p>
 <%= image_tag @post.image.url(:medium) %>
-</p>
+</p>  
 
 <p>
   <strong>Description:</strong>
   <%= @post.description %>
 </p>
+</div>
 
-<hr>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+
+<div class="col-sm-4 ">
+<h4> <b> <%= @post.comments.count %></b>   Comments</h4>
+<div style="height: 270px; overflow: scroll ;">
+<% @post.comments.each do |comment| %>
+  
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+
+  <p>
+  <% if can? :delete, comment %>
+  <%= link_to 'Destroy Comment', [comment.post, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+               <% end %>
+</p>
+<% end %>
+</div>
+
+
+
+ 
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+  
+
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+</div>
+
+</div>
+
+
+<% if can? :edit, @post %>
+<%= link_to 'Edit', edit_post_path(@post) %> 
+<% end %>
 <%= link_to 'Back', posts_path %>
 
-
+</div>
 
 
 

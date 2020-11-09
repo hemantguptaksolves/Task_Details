@@ -12,12 +12,9 @@
     <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Enter Password",required: true %>
   </div>
 
-
-
-
-
-
-
+  <div class="actions">
+    <%= f.submit "Log in",class: "form-control btn btn-primary" %>
+  </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field">
@@ -26,11 +23,7 @@
     </div>
   <% end %>
 
-  
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
