@@ -1,0 +1,5 @@
+<%= render 'comments/new', post: post %>
+
+<section id="comments" data-article-id="<%= @post.id %>">
+  <%= render @post.comments %>
+</section>

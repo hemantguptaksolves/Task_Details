@@ -1,0 +1,15 @@
+
+
+<%= form_with model:[ @post, @comment], id: "comments-form" do |form| %>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body, required: true %>
+  </p>
+  <p>
+    <%= form.label :comment_image_test %>
+    <%= form.file_field :comment_image_test %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

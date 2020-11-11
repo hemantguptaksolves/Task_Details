@@ -1,0 +1,8 @@
+<% if @comment.errors.any? %>
+    document.querySelector('#error_explanation') ? document.querySelector('#error_explanation').remove() : null ;
+    document.querySelector('#comments-form').insertAdjacentHTML('afterbegin', '<%= escape_javascript(render "shared/validation-messages", object: @comment) %>');
+<% else %>
+    $('#comments').prepend('<%= escape_javascript(render @comment) %>') ;
+    $('#comment-count').html('<h4>Comments: This article has <%= pluralize(@post.comments.count, 'comment') %></h4>')
+    document.querySelector('#comments-form').reset();
+<% end %>

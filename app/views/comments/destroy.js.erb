@@ -1,0 +1,2 @@
+$('#comments').html('<%= escape_javascript(render @post.comments) %>');
+$('#comment-count').html('<h4>Comments: This article has <%= pluralize(@post.comments.count, 'comment') %></h4>')
